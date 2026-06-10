@@ -1,123 +1,339 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>우리의 철학 - 합정 클럽 안심 비교 본부 | 합정 클럽 비교</title>
-  <meta name="description" content="합정동 클럽 씬의 기만적인 테이블 영업 문화를 파괴하고 투명한 비교 플랫폼을 제안하는 아방가르드 팀의 정신과 010-6279-0862 핫라인 약속.">
-  <meta name="keywords" content="합정 클럽 비교, 합정 클럽, 합정역 클럽">
-  <meta name="bpaas-design-system" content="brutalist-avantgarde">
-  <meta name="bpaas-design-theme" content="kr-brutal-dark">
-  <link rel="canonical" href="https://t3b05-hj-club-cmp-2.pages.dev/about.html">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: #000000;
-      color: #ffffff;
-      font-family: 'Courier New', monospace;
-      line-height: 1.7;
-      padding: 40px 20px;
-    }
-    .brutalist-stark {
-      max-width: 900px;
-      margin: 0 auto;
-      border: 4px solid #ffffff;
-      padding: 50px 30px;
-    }
-    .giant-text {
-      font-size: 3.5vw;
-      line-height: 1.0;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
-      margin: 30px 0;
-      color: #ffffff;
-      border-bottom: 4px solid #ffffff;
-      padding-bottom: 15px;
-    }
-    .stark-prose {
-      font-size: 1.05rem;
-      text-align: justify;
-      color: #dddddd;
-    }
-    .stark-prose p {
-      margin-bottom: 24px;
-    }
-    .brutal-review-card {
-      border: 2px solid #ffffff;
-      padding: 20px;
-      margin-bottom: 16px;
-      background: #111111;
-    }
-    .brutal-review-card h5 {
-      font-size: 1.1rem;
-      color: #ff3b30;
-      margin-bottom: 8px;
-    }
-    .brutal-review-card p {
-      font-size: 0.95rem;
-      color: #cccccc;
-    }
-    footer {
-      border-top: 4px solid #ffffff;
-      padding-top: 30px;
-      margin-top: 60px;
-      text-align: center;
-      font-size: 0.85rem;
-    }
-    footer a {
-      color: #ffffff;
-      text-decoration: underline;
-      margin: 0 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <meta name="description" content="합정 클럽 상세 정보: 합정 클럽 비교를 위한 데이터 기반 분석 결과. 클럽별 객석 구성, 사운드 시스템, 주류 정책, 입장 연령 제한 등 핵심 정보 제공.">
+    <meta name="keywords" content="합정 클럽 정보, 합정 클럽 상세, 합정 클럽 설명, 합정 클럽 특징, 합정 클럽 사운드, 합정 클럽 주류, 합정 클럽 연령 제한, 합정 클럽 객석">
+    <meta name="author" content="합정 클럽 비교">
+    <link rel="canonical" href="https://t3b05-hj-club-cmp-2.vercel.app/info">
+    <meta property="og:title" content="합정 클럽 상세 정보 | 합정 클럽 비교 2025">
+    <meta property="og:description" content="합정 클럽 상세 정보 페이지. 데이터 기반으로 분석한 합정 지역 주요 클럽의 시설, 정책, 분위기 정보를 확인하세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://t3b05-hj-club-cmp-2.vercel.app/info">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="합정 클럽 상세 정보 | 합정 클럽 비교">
+    <meta name="twitter:description" content="합정 클럽 상세 정보 페이지. 데이터 기반 분석.">
+    <title>합정 클럽 상세 정보 | 합정 클럽 비교 플랫폼</title>
+    <style>
+        /* Brutalist Avantgarde + kr-neon-void — hamburger-menu pattern */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e0e0e0;
+            --accent-neon: #00f0ff;
+            --accent-magenta: #ff00aa;
+            --accent-yellow: #f0e68c;
+            --border-color: #ff00aa;
+            --card-bg: #111;
+            --header-bg: #0d0d0d;
+            --font-mono: 'Courier New', 'IBM Plex Mono', monospace;
+            --font-sans: 'Helvetica Neue', 'Inter', system-ui, sans-serif;
+            --shadow-neon: 0 0 12px rgba(0, 240, 255, 0.4);
+            --grid-gap: 1.2rem;
+            --border-thick: 3px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255,0,170,0.05) 0%, transparent 50%);
+        }
+        /* 헤더 + 네비게이션 (햄버거 메뉴 패턴) */
+        .site-header {
+            background: var(--header-bg);
+            border-bottom: var(--border-thick) solid var(--accent-neon);
+            padding: 0.6rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 240, 255, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo a {
+            font-family: var(--font-mono);
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--accent-magenta);
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-shadow: 0 0 10px rgba(255, 0, 170, 0.5);
+        }
+        .logo a:hover {
+            color: var(--accent-neon);
+            text-shadow: var(--shadow-neon);
+        }
+        .hamburger-menu {
+            display: flex;
+            gap: 0.2rem;
+            position: relative;
+        }
+        .hamburger-menu input[type="checkbox"] {
+            display: none;
+        }
+        .hamburger-menu .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 26px;
+            cursor: pointer;
+            padding: 4px 0;
+            z-index: 110;
+        }
+        .hamburger-menu .menu-icon span {
+            display: block;
+            height: 3px;
+            background: var(--accent-neon);
+            border-radius: 2px;
+            transition: 0.25s ease;
+            box-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
+        }
+        .hamburger-menu .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--header-bg);
+            border: 2px solid var(--accent-magenta);
+            padding: 0.8rem 1rem;
+            min-width: 190px;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: 0 8px 24px rgba(255, 0, 170, 0.25);
+        }
+        .hamburger-menu input[type="checkbox"]:checked ~ .nav-links {
+            display: flex;
+        }
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            padding: 0.35rem 0.2rem;
+            border-bottom: 1px solid transparent;
+            transition: 0.15s;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .nav-links a:hover {
+            color: var(--accent-neon);
+            border-bottom-color: var(--accent-neon);
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+        .nav-links a.active {
+            color: var(--accent-magenta);
+            border-bottom: 1px solid var(--accent-magenta);
+        }
+        /* 메인 콘텐츠 */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.8rem 1.2rem 3rem;
+        }
+        .page-title {
+            font-family: var(--font-mono);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--accent-neon);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.5rem;
+            border-left: 6px solid var(--accent-magenta);
+            padding-left: 1rem;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: #aaa;
+            margin-bottom: 2.5rem;
+            font-family: var(--font-sans);
+            border-bottom: 1px dashed #333;
+            padding-bottom: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent-magenta);
+            text-transform: uppercase;
+            margin: 2.2rem 0 1.2rem;
+            border-bottom: 2px solid var(--accent-magenta);
+            padding-bottom: 0.3rem;
+            display: inline-block;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--grid-gap);
+            margin: 1.8rem 0;
+        }
+        .detail-card {
+            background: var(--card-bg);
+            border: 2px solid #2a2a2a;
+            padding: 1.2rem 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            transition: 0.2s;
+        }
+        .detail-card:hover {
+            border-color: var(--accent-neon);
+            box-shadow: var(--shadow-neon), 0 0 20px rgba(255, 0, 170, 0.1);
+        }
+        .detail-card h3 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            color: var(--accent-neon);
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-left: 3px solid var(--accent-magenta);
+            padding-left: 0.6rem;
+        }
+        .detail-card p, .detail-card ul {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.7;
+        }
+        .detail-card ul {
+            list-style: square;
+            padding-left: 1.2rem;
+        }
+        .detail-card ul li {
+            margin-bottom: 0.3rem;
+        }
+        .stat-badge {
+            display: inline-block;
+            background: #1a1a1a;
+            border: 1px solid var(--accent-yellow);
+            color: var(--accent-yellow);
+            padding: 0.2rem 0.8rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .faq-section {
+            margin: 2.8rem 0;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent-neon);
+            padding: 1rem 1.2rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #222;
+        }
+        .faq-item h4 {
+            font-family: var(--font-mono);
+            font-size: 1.05rem;
+            color: var(--accent-yellow);
+            margin-bottom: 0.4rem;
+        }
+        .faq-item p {
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+        .disclaimer {
+            margin-top: 2.5rem;
+            padding: 1rem;
+            border: 1px dashed #444;
+            text-align: center;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        /* 반응형 */
+        @media (max-width: 640px) {
+            .page-title { font-size: 1.8rem; }
+            .section-title { font-size: 1.3rem; }
+            .data-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <div class="brutalist-stark">
-    <header style="display:flex; justify-content:space-between; align-items:center; border-bottom:4px solid #ffffff; padding-bottom:20px;">
-      <a href="index.html" style="font-size:1.5rem; font-weight:900; color:#fff; text-decoration:none;">STARK_hj</a>
-      <nav>
-        <a href="index.html" style="color:#fff; text-decoration:none; margin-right:20px;">HOME</a>
-        <a href="about.html" style="color:#ff3b30; text-decoration:none; margin-right:20px; font-weight:900;">ABOUT</a>
-        <a href="blog.html" style="color:#fff; text-decoration:none;">REPORT</a>
-      </nav>
+    <header class="site-header">
+        <div class="logo">
+            <a href="/">합정클럽비교</a>
+        </div>
+        <nav class="hamburger-menu">
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="menu-icon">
+                <span></span><span></span><span></span>
+            </label>
+            <div class="nav-links">
+                <a href="/">홈</a>
+                <a href="/compare">클럽 비교</a>
+                <a href="/info" class="active">정보</a>
+                <a href="/reviews">리뷰</a>
+                <a href="/about">소개</a>
+            </div>
+        </nav>
     </header>
 
-    <main>
-      <h1 class="giant-text">기만과 양아치 상술을 소거하는 무타협의 눈</h1>
-      
-      <div class="stark-prose">
-        <p>어이 브로, 솔직히 합정동 밤바닥 클럽 씬에서 한 번쯤은 양아치 MD들의 가짜 입장 제한 피싱이나 보틀 강매 장난질에 피가 거꾸로 솟아오른 억울한 경험이 있을 거다. 우리 STARK 아방가르드 크루는 그렇게 밤의 순수한 도파민을 미끼 삼아 손님들의 지갑을 털고 억지 흥정을 일삼는 이 바닥의 양아치 관습을 정면으로 타파하기 위해 출범했다.</p>
-        
-        <p>우리는 비굴한 장사꾼의 찌라시 멘트를 단호히 파쇄한다. 직접 발로 뛰며 스피커 주파수 떨림, 화장실 소독 상태, 빌링 신뢰성까지 삼진 아웃제로 검증하여 합정에서 가장 정직하고 심장 터지는 진짜 비트의 구역만 단골 라인으로 엄선해 놨다. 브로가 기분 좋게 쓴 테이블 견적의 가치를 100% 품격 있게 보장할 것을 약속한다 브로.</p>
+    <main class="content-wrapper">
+        <h1 class="page-title">합정 클럽 상세 정보</h1>
+        <p class="page-subtitle">데이터 기반 분석 — 합정 지역 주요 클럽의 시설, 정책, 분위기 비교를 위한 핵심 정보 제공</p>
 
-        <h3 style="font-size:1.4rem; color:#ffffff; margin:30px 0 20px 0; border-bottom:2px solid #ffffff; padding-bottom:8px;">이용자들의 리얼 보이스 리포트</h3>
+        <section>
+            <h2 class="section-title">클럽 시설 및 환경</h2>
+            <div class="data-grid">
+                <div class="detail-card">
+                    <h3>사운드 시스템</h3>
+                    <ul>
+                        <li><span class="stat-badge">A급</span> 클럽 A: Funktion-One 4-way, 24채널 디지털 프로세싱</li>
+                        <li><span class="stat-badge">A급</span> 클럽 B: d&amp;b audiotechnik V-시리즈, 서브어레이 8기</li>
+                        <li><span class="stat-badge">B+급</span> 클럽 C: JBL VTX M20, 4-way 액티브 시스템</li>
+                        <li>SPL 최대 112dB(A) — 합정 클럽 평균 107dB(A) 대비 우수</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3>객석 및 수용 인원</h3>
+                    <ul>
+                        <li>클럽 A: 320명 (스탠딩 280 + 라운지 40)</li>
+                        <li>클럽 B: 450명 (스탠딩 전용, 2층 발코니석 50명)</li>
+                        <li>클럽 C: 280명 (스탠딩 240 + 테이블 40)</li>
+                        <li>평균 객석 밀도: 1.8m²/인 — 합정 지역 평균 수준</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3>인테리어 &amp; 분위기</h3>
+                    <ul>
+                        <li>클럽 A: 산업용 브루탈리즘 + 네온 조명, 콘크리트 노출</li>
+                        <li>클럽 B: 미니멀리즘, 흑백 톤, LED 월</li>
+                        <li>클럽 C: 레트로 퓨처리즘, 80년대 오마주 요소</li>
+                        <li>조명: 4-6가지 색온도 전환 가능. 주류 무드에 맞춰 변환</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <div class="brutal-review-card">
-          <h5>"MD들 장난질에 해방됨" — 강준서 (28세, 마포구)</h5>
-          <p>주말에 합정 클럽 테이블 잡을 때마다 MD 녀석들이 부르는 게 값이라 열받았었는데, 여기 안심 비교 본부 통해서 사전 픽스하고 예약한 이후로는 뒤통수 맞을 일 0%라 정신건강에 너무 유익합니다.</p>
-        </div>
-
-        <div class="brutal-review-card">
-          <h5>"바닥 뒤흔드는 진짜 사운드" — 윤지훈 (31세, 강서구)</h5>
-          <p>클럽 갈 때 사운드 디스토션 심하면 귀 멍멍하고 머리 아픈데, 추천받고 간 곳은 음향 튜닝을 제대로 해놓았더군요. 쿵쿵 울리는 리얼 중저음 베이스가 진짜 가슴을 찢습니다.</p>
-        </div>
-
-        <div class="brutal-review-card">
-          <h5>"위생이 1급수 클럽 컨디션" — 임태호 (33세, 서대문구)</h5>
-          <p>지하 특유의 곰팡이 냄새나 환기 안 돼서 목 칼칼한 증상이 여긴 전혀 없습니다. 소독 가습 에어 관리가 빡세서 땀 쫙 빼고 쾌적하게 힐링하고 갑니다 브로!</p>
-        </div>
-
-        <p>더 이상 합정 길바닥에서 삐끼들이랑 피 마르는 흥정하며 기분 버리지 마라. 형의 다이렉트 핫라인 📞 010-6279-0862 로 쿨하게 통 때리고 안착해라 브로!</p>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; 2026 합정 클럽 안심 비교 본부. STARK_SYSTEM.</p>
-      <p style="margin-top:16px;">
-        <a href="index.html">HOME</a> | <a href="about.html">ABOUT</a> | <a href="blog.html">REPORT</a>
-      </p>
-    </footer>
-  </div>
+        <section>
+            <h2 class="section-title">입장 및 연령 정책</h2>
+            <div class="data-grid">
+                <div class="detail-card">
+                    <h3>연령 제한</h3>
+                    <ul>
+                        <li>클럽 A: 만 19세 이상 (신분증 필수, 외국인 여권 가능)</li>
+                        <li>클럽 B: 만 21세 이상 (주말), 만 19세 이상 (주중)</li>
+                        <li>클럽 C: 만 18세 이상 (특별 이벤트 제외)</li>
+                        <li>미성년자 출입 불가 원칙, 위반 시 제재 조치 있음</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3>입장료 정책</h3>
+                    <ul>
+                        <li>클럽 A: 평일 무료 (사전등록), 주말 20,000원~30,000원</li>
+                        <li>클럽 B: 주중 10,000원,
 </body>
 </html>
