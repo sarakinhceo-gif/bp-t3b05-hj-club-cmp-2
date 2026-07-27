@@ -1,339 +1,141 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <meta name="description" content="합정 클럽 상세 정보: 합정 클럽 비교를 위한 데이터 기반 분석 결과. 클럽별 객석 구성, 사운드 시스템, 주류 정책, 입장 연령 제한 등 핵심 정보 제공.">
-    <meta name="keywords" content="합정 클럽 정보, 합정 클럽 상세, 합정 클럽 설명, 합정 클럽 특징, 합정 클럽 사운드, 합정 클럽 주류, 합정 클럽 연령 제한, 합정 클럽 객석">
-    <meta name="author" content="합정 클럽 비교">
-    <link rel="canonical" href="https://t3b05-hj-club-cmp-2.vercel.app/info">
-    <meta property="og:title" content="합정 클럽 상세 정보 | 합정 클럽 비교 2025">
-    <meta property="og:description" content="합정 클럽 상세 정보 페이지. 데이터 기반으로 분석한 합정 지역 주요 클럽의 시설, 정책, 분위기 정보를 확인하세요.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://t3b05-hj-club-cmp-2.vercel.app/info">
-    <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="합정 클럽 상세 정보 | 합정 클럽 비교">
-    <meta name="twitter:description" content="합정 클럽 상세 정보 페이지. 데이터 기반 분석.">
-    <title>합정 클럽 상세 정보 | 합정 클럽 비교 플랫폼</title>
-    <style>
-        /* Brutalist Avantgarde + kr-neon-void — hamburger-menu pattern */
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color: #e0e0e0;
-            --accent-neon: #00f0ff;
-            --accent-magenta: #ff00aa;
-            --accent-yellow: #f0e68c;
-            --border-color: #ff00aa;
-            --card-bg: #111;
-            --header-bg: #0d0d0d;
-            --font-mono: 'Courier New', 'IBM Plex Mono', monospace;
-            --font-sans: 'Helvetica Neue', 'Inter', system-ui, sans-serif;
-            --shadow-neon: 0 0 12px rgba(0, 240, 255, 0.4);
-            --grid-gap: 1.2rem;
-            --border-thick: 3px;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            min-height: 100vh;
-            background-image: radial-gradient(circle at 20% 30%, rgba(255,0,170,0.05) 0%, transparent 50%);
-        }
-        /* 헤더 + 네비게이션 (햄버거 메뉴 패턴) */
-        .site-header {
-            background: var(--header-bg);
-            border-bottom: var(--border-thick) solid var(--accent-neon);
-            padding: 0.6rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 240, 255, 0.15);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo a {
-            font-family: var(--font-mono);
-            font-size: 1.7rem;
-            font-weight: 700;
-            color: var(--accent-magenta);
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.08em;
-            text-shadow: 0 0 10px rgba(255, 0, 170, 0.5);
-        }
-        .logo a:hover {
-            color: var(--accent-neon);
-            text-shadow: var(--shadow-neon);
-        }
-        .hamburger-menu {
-            display: flex;
-            gap: 0.2rem;
-            position: relative;
-        }
-        .hamburger-menu input[type="checkbox"] {
-            display: none;
-        }
-        .hamburger-menu .menu-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 26px;
-            cursor: pointer;
-            padding: 4px 0;
-            z-index: 110;
-        }
-        .hamburger-menu .menu-icon span {
-            display: block;
-            height: 3px;
-            background: var(--accent-neon);
-            border-radius: 2px;
-            transition: 0.25s ease;
-            box-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
-        }
-        .hamburger-menu .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--header-bg);
-            border: 2px solid var(--accent-magenta);
-            padding: 0.8rem 1rem;
-            min-width: 190px;
-            flex-direction: column;
-            gap: 0.5rem;
-            box-shadow: 0 8px 24px rgba(255, 0, 170, 0.25);
-        }
-        .hamburger-menu input[type="checkbox"]:checked ~ .nav-links {
-            display: flex;
-        }
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.95rem;
-            padding: 0.35rem 0.2rem;
-            border-bottom: 1px solid transparent;
-            transition: 0.15s;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-        .nav-links a:hover {
-            color: var(--accent-neon);
-            border-bottom-color: var(--accent-neon);
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
-        }
-        .nav-links a.active {
-            color: var(--accent-magenta);
-            border-bottom: 1px solid var(--accent-magenta);
-        }
-        /* 메인 콘텐츠 */
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.8rem 1.2rem 3rem;
-        }
-        .page-title {
-            font-family: var(--font-mono);
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--accent-neon);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 0.5rem;
-            border-left: 6px solid var(--accent-magenta);
-            padding-left: 1rem;
-            text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
-        }
-        .page-subtitle {
-            font-size: 1.05rem;
-            color: #aaa;
-            margin-bottom: 2.5rem;
-            font-family: var(--font-sans);
-            border-bottom: 1px dashed #333;
-            padding-bottom: 0.8rem;
-            letter-spacing: 0.02em;
-        }
-        .section-title {
-            font-family: var(--font-mono);
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--accent-magenta);
-            text-transform: uppercase;
-            margin: 2.2rem 0 1.2rem;
-            border-bottom: 2px solid var(--accent-magenta);
-            padding-bottom: 0.3rem;
-            display: inline-block;
-        }
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--grid-gap);
-            margin: 1.8rem 0;
-        }
-        .detail-card {
-            background: var(--card-bg);
-            border: 2px solid #2a2a2a;
-            padding: 1.2rem 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-            transition: 0.2s;
-        }
-        .detail-card:hover {
-            border-color: var(--accent-neon);
-            box-shadow: var(--shadow-neon), 0 0 20px rgba(255, 0, 170, 0.1);
-        }
-        .detail-card h3 {
-            font-family: var(--font-mono);
-            font-size: 1.2rem;
-            color: var(--accent-neon);
-            margin-bottom: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            border-left: 3px solid var(--accent-magenta);
-            padding-left: 0.6rem;
-        }
-        .detail-card p, .detail-card ul {
-            font-size: 0.95rem;
-            color: #ccc;
-            line-height: 1.7;
-        }
-        .detail-card ul {
-            list-style: square;
-            padding-left: 1.2rem;
-        }
-        .detail-card ul li {
-            margin-bottom: 0.3rem;
-        }
-        .stat-badge {
-            display: inline-block;
-            background: #1a1a1a;
-            border: 1px solid var(--accent-yellow);
-            color: var(--accent-yellow);
-            padding: 0.2rem 0.8rem;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.3rem;
-        }
-        .faq-section {
-            margin: 2.8rem 0;
-        }
-        .faq-item {
-            background: var(--card-bg);
-            border-left: 4px solid var(--accent-neon);
-            padding: 1rem 1.2rem;
-            margin-bottom: 0.8rem;
-            border-bottom: 1px solid #222;
-        }
-        .faq-item h4 {
-            font-family: var(--font-mono);
-            font-size: 1.05rem;
-            color: var(--accent-yellow);
-            margin-bottom: 0.4rem;
-        }
-        .faq-item p {
-            color: #bbb;
-            font-size: 0.95rem;
-        }
-        .disclaimer {
-            margin-top: 2.5rem;
-            padding: 1rem;
-            border: 1px dashed #444;
-            text-align: center;
-            color: #888;
-            font-size: 0.85rem;
-        }
-        /* 반응형 */
-        @media (max-width: 640px) {
-            .page-title { font-size: 1.8rem; }
-            .section-title { font-size: 1.3rem; }
-            .data-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="bpaas-design-system" content="editorial-apple">
+  <meta name="bpaas-design-theme" content="kr-noir-burgundy">
+  <title>합정 클럽 정보</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://hapjeong-club-review.program-school.online/about.html">
+  <meta property="og:url" content="https://hapjeong-club-review.program-school.online/about.html">
 </head>
 <body>
-    <header class="site-header">
-        <div class="logo">
-            <a href="/">합정클럽비교</a>
-        </div>
-        <nav class="hamburger-menu">
-            <input type="checkbox" id="nav-toggle">
-            <label for="nav-toggle" class="menu-icon">
-                <span></span><span></span><span></span>
-            </label>
-            <div class="nav-links">
-                <a href="/">홈</a>
-                <a href="/compare">클럽 비교</a>
-                <a href="/info" class="active">정보</a>
-                <a href="/reviews">리뷰</a>
-                <a href="/about">소개</a>
-            </div>
-        </nav>
-    </header>
+  <header class="header">
+    <h1 class="title">합정 클럽 비교</h1>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/home">홈</a></li>
+        <li class="nav-item"><a href="/clubs">클럽 소개</a></li>
+        <li class="nav-item"><a href="/compare">클럽 비교</a></li>
+        <li class="nav-item"><a href="/contact">문의</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main class="content-wrapper">
-        <h1 class="page-title">합정 클럽 상세 정보</h1>
-        <p class="page-subtitle">데이터 기반 분석 — 합정 지역 주요 클럽의 시설, 정책, 분위기 비교를 위한 핵심 정보 제공</p>
+  <main class="container">
+    <!-- Overview Section -->
+    <section class="section overview">
+      <h2 class="section-title">합정 지역 클럽 개요</h2>
+      <p>
+        합정은 홍대 인근의 문화·예술 중심지로, 다채로운 음악과 독특한 인테리어를 갖춘 클럽이 집중돼 있습니다. 이 지역은 젊은 층과 해외 방문객이 동시에 찾는 공간으로, 밤 시간대 유동 인구가 높아 다양한 이벤트와 퍼포먼스가 자주 개최됩니다. 클럽 운영자는 지역 특성을 반영해 다양한 장르를 수용하면서도, 안전 관리와 소음 규제에 대한 지방 자치단체의 기준을 충족해야 합니다.
+      </p>
+      <p>
+        합정 클럽을 선택할 때는 교통 접근성, 영업 시간, 내부 시설(음향, 조명, 주류 서비스) 등 여러 요소를 종합적으로 검토해야 합니다. 특히, 지하철 2호선과 6호선이 교차하는 합정역은 대중교통 이용률이 높아 방문객 흐름을 크게 좌우합니다. 따라서 클럽이 위치한 거리와 역에서의 도보 거리도 중요한 판단 기준이 됩니다.
+      </p>
+    </section>
 
-        <section>
-            <h2 class="section-title">클럽 시설 및 환경</h2>
-            <div class="data-grid">
-                <div class="detail-card">
-                    <h3>사운드 시스템</h3>
-                    <ul>
-                        <li><span class="stat-badge">A급</span> 클럽 A: Funktion-One 4-way, 24채널 디지털 프로세싱</li>
-                        <li><span class="stat-badge">A급</span> 클럽 B: d&amp;b audiotechnik V-시리즈, 서브어레이 8기</li>
-                        <li><span class="stat-badge">B+급</span> 클럽 C: JBL VTX M20, 4-way 액티브 시스템</li>
-                        <li>SPL 최대 112dB(A) — 합정 클럽 평균 107dB(A) 대비 우수</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3>객석 및 수용 인원</h3>
-                    <ul>
-                        <li>클럽 A: 320명 (스탠딩 280 + 라운지 40)</li>
-                        <li>클럽 B: 450명 (스탠딩 전용, 2층 발코니석 50명)</li>
-                        <li>클럽 C: 280명 (스탠딩 240 + 테이블 40)</li>
-                        <li>평균 객석 밀도: 1.8m²/인 — 합정 지역 평균 수준</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3>인테리어 &amp; 분위기</h3>
-                    <ul>
-                        <li>클럽 A: 산업용 브루탈리즘 + 네온 조명, 콘크리트 노출</li>
-                        <li>클럽 B: 미니멀리즘, 흑백 톤, LED 월</li>
-                        <li>클럽 C: 레트로 퓨처리즘, 80년대 오마주 요소</li>
-                        <li>조명: 4-6가지 색온도 전환 가능. 주류 무드에 맞춰 변환</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- Comparison Criteria Section -->
+    <section class="section criteria">
+      <h2 class="section-title">비교 기준 및 평가 항목</h2>
+      <p>
+        본 페이지에서는 객관적인 데이터를 기반으로 클럽을 평가합니다. 주요 항목은 ① 시설 규모와 수용 인원, ② 사운드 시스템 및 조명 설비, ③ 영업 시간·주말 운영 정책, ④ 가격 정책(입장료·주류 가격), ⑤ 고객 안전 관리(보안 인력·소방 설비), ⑥ 주변 인프라와 접근성(주차·대중교통) 등입니다.
+      </p>
+      <p>
+        각 항목은 현장 조사와 지방 자치단체 공시 자료, 업계 표준을 참고해 점수화합니다. 예를 들어, 사운드 시스템은 국제 음향 규격(ISO 3382)과 현장 측정 데이터를 통해 저음·고음 균형을 평가하고, 조명은 LED 전환 비율과 색 온도 조절 가능 여부를 기준으로 점수를 부여합니다. 이와 같은 정량적 근거는 이용자가 선택에 확신을 가질 수 있게 합니다.
+      </p>
+    </section>
 
-        <section>
-            <h2 class="section-title">입장 및 연령 정책</h2>
-            <div class="data-grid">
-                <div class="detail-card">
-                    <h3>연령 제한</h3>
-                    <ul>
-                        <li>클럽 A: 만 19세 이상 (신분증 필수, 외국인 여권 가능)</li>
-                        <li>클럽 B: 만 21세 이상 (주말), 만 19세 이상 (주중)</li>
-                        <li>클럽 C: 만 18세 이상 (특별 이벤트 제외)</li>
-                        <li>미성년자 출입 불가 원칙, 위반 시 제재 조치 있음</li>
-                    </ul>
-                </div>
-                <div class="detail-card">
-                    <h3>입장료 정책</h3>
-                    <ul>
-                        <li>클럽 A: 평일 무료 (사전등록), 주말 20,000원~30,000원</li>
-                        <li>클럽 B: 주중 10,000원,
+    <!-- Club List Section -->
+    <section class="section clubs">
+      <h2 class="section-title">주요 클럽 개별 소개</h2>
+
+      <div class="card club-card">
+        <h3 class="card-title">Club A</h3>
+        <p>
+          Club A는 3층 구조로, 1층은 라운지와 바, 2층은 메인 댄스 플로어, 3층은 VIP 전용 라운지로 구분됩니다. 최신 디지털 사운드 시스템과 12개 이상의 DMX 조명 라인이 설치돼 다양한 무대 연출이 가능합니다. 영업 시간은 주중 21시~02시, 주말 20시~03시이며, 입장료는 평일 20,000원, 주말 25,000원으로 책정돼 있습니다.
+        </p>
+        <p>
+          안전 관리 측면에서는 전담 보안 인력이 3명 상시 배치되고, 2개의 비상구와 실시간 CCTV 모니터링 시스템을 운영합니다. 또한, 대중교통 접근성이 뛰어나 합정역 5분 거리이며, 주변에 주차장을 20대 규모로 확보하고 있어 차량 이용자도 편리합니다.
+        </p>
+      </div>
+
+      <div class="card club-card">
+        <h3 class="card-title">Club B</h3>
+        <p>
+          Club B는 2층 규모이며, 바 형태의 라운지와 대형 오픈 플로어를 특징으로 합니다. 사운드는 스피커 8대를 활용한 스테레오 시스템을 적용했으며, 조명은 분위기 색채 변환이 가능한 스마트 LED 패널을 사용합니다. 영업 시간은 평일 22시~01시, 주말 21시~02시이며, 입장료는 고정 15,000원 정책을 유지합니다.
+        </p>
+        <p>
+          클럽 내부는 방음 설계가 강화돼 주변 거주민과의 소음 분쟁 사례가 거의 없으며, 매년 지방 자치단체의 영업 허가를 갱신합니다. 합정역에서 도보 7분 거리에 위치하고, 인근에 있는 카페와 레스토랑이 다수 있어 사전·사후 이용이 원활합니다.
+        </p>
+      </div>
+
+      <div class="card club-card">
+        <h3 class="card-title">Club C</h3>
+        <p>
+          Club C는 예술 전시 공간과 클럽이 결합된 복합 공간으로, 전시 기간에 따라 음악 장르가 변동됩니다. 주된 사운드 장비는 24채널 믹서와 서브우퍼 4대를 갖춘 고출력 시스템이며, 조명은 프로젝션 맵핑을 지원해 시각적 효과를 극대화합니다. 영업 시간은 월~금 20시~01시, 주말은 19시~02시이며, 입장료는 전시 유무에 따라 10,000~20,000원으로 차등 적용됩니다.
+        </p>
+        <p>
+          클럽 운영자는 매주 안전 점검을 실시하고, 비상 상황 발생 시 5분 이내 대피가 가능하도록 인원 배치를 최적화했습니다. 접근성은 합정역 8분 거리이며, 인근에 위치한 자전거 대여소와 공유 전동스쿠터 스테이션을 통해 친환경 이동도 지원합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- Visitor Tips Section -->
+    <section class="section tips">
+      <h2 class="section-title">방문 전 확인해야 할 체크리스트</h2>
+      <p>
+        ① 예약 여부: 인기 클럽은 사전 예약이 필요합니다. 공식 홈페이지 또는 전화 문의를 통해 티켓 예약 가능 여부를 확인하고, 예약이 가능할 경우 최소 24시간 전까지 결제 절차를 마쳐야 합니다. 예약이 없는 경우는 당일 현장 구매가 제한될 수 있습니다.
+      </p>
+      <p>
+        ② 복장 규정: 일부 클럽은 드레스 코드를 적용합니다. 특히 VIP 라운지 입장은 정장·세미 포멀 복장이 요구될 수 있으니, 사전에 운영 정책을 검토하십시오. 또한, 복장 검사는 입장 직전 진행되며, 과도한 액세서리나 신발은 제한될 수 있습니다.
+      </p>
+      <p>
+        ③ 교통 및 주차 계획: 합정역 주변은 교통량이 집중되므로, 대중교통 이용을 권장합니다. 주차가 필요한 경우, 클럽 인근 공영 주차장을 미리 예약하고, 주차 요금 및 운영 시간을 확인하십시오. 근처 자전거 대여소를 활용하면 이동이 더욱 편리합니다.
+      </p>
+      <p>
+        ④ 안전 수칙: 클럽 내에서는 흡연 구역과 비흡연 구역이 명확히 구분됩니다. 보안 인력의 안내에 따라 이동하고, 비상시 대피 경로를 미리 파악해 두는 것이 좋습니다. 또한, 음주 후 운전 금지와 과음 방지를 위해 물 제공 서비스 이용을 권장합니다.
+      </p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq">
+      <h2 class="section-title">자주 묻는 질문</h2>
+      <div class="faq-item">
+        <h3 class="question">Q1. 합정 클럽은 어느 정도의 연령층을 대상으로 하나요?</h3>
+        <p class="answer">
+          대부분의 클럽은 20대~30대 초반을 주요 타깃으로 하지만, 음악 장르와 이벤트 종류에 따라 40대 이상 고객도 방문합니다. 특히, 소규모 라운지는 다양한 연령층을 수용하도록 분위기를 조성합니다.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="question">Q2. 영업 허가 및 안전 인증은 어떻게 확인할 수 있나요?</h3>
+        <p class="answer">
+          각 클럽은 관할 구청의 영업 허가증과 소방 안전 검사 결과를 공개하고 있습니다. 클럽 홈페이지 혹은 현장 안내 데스크에서 최신 인증서를 확인할 수 있으며, 비상시에는 비상구 표시와 소방 설비를 직접 점검하는 것이 좋습니다.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="question">Q3. 사전 예약이 가능한 경우, 취소 정책은 어떻게 되나요?</h3>
+        <p class="answer">
+          대부분의 클럽은 예약 24시간 전까지 무료 취소가 가능하나, 이벤트 티켓은 환불이 제한될 수 있습니다. 취소 시 환불 여부는 결제 방법과 예약 유형에 따라 차이가 있으니, 예약 확인 메일에 명시된 정책을 반드시 확인하십시오.
+        </p>
+      </div>
+    </section>
+
+    <!-- Meta Information Section -->
+    <section class="section meta">
+      <h2 class="section-title">메타 정보</h2>
+      <p>
+        <strong>키워드:</strong> 합정 클럽, 합정 클럽 비교, 합정 나이트라이프, 홍대 클럽, 합정 지역 시그널
+      </p>
+      <p>
+        <strong>작성일:</strong> 2026-07-28<br>
+        <strong>작성자:</strong> Black Book Concierge 팀
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">© 2026 Black Book Concierge. All rights reserved.</p>
+  </footer>
 </body>
 </html>

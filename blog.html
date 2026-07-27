@@ -1,401 +1,81 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="neon-void" data-build="a1b2c3d4">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>합정 클럽 비교 블로그 | 현장 이야기</title>
+  <meta name="description" content="합정에 있는 클럽을 실제 방문 경험과 상황별 팁으로 비교합니다. 파티, 데이트, 친구 모임 등 목적에 맞는 클럽 선택 가이드를 제공합니다.">
+  <meta name="keywords" content="합정 클럽, 클럽 비교, 합정 나이트라이프, 클럽 선택 가이드, 클럽 체크리스트">
+  <link rel="canonical" href="https://hapjeong-club-review.program-school.online/blog.html">
+  <meta name="generator" content="custom-cms-qxrt">
   <meta name="bpaas-design-system" content="brutalist-avantgarde">
   <meta name="bpaas-design-theme" content="kr-neon-void">
-  <meta name="description" content="합정 클럽 비교 블로그: 데이터 기반 클럽 분석, 음악 장르별 추천, 가격 비교 인사이트. 전문가가 엄선한 합정 클럽 완벽 가이드.">
-  <meta name="keywords" content="합정 클럽 블로그, 합정 클럽 분석, 합정 클럽 가격 비교, 합정 클럽 음악 장르, 합정 클럽 추천, 합정 클럽 리뷰, 클럽 비교 인사이트">
-  <meta name="author" content="합정 클럽 비교">
-  <link rel="canonical" href="https://t3b05-hj-club-cmp-2.vercel.app/blog">
-  <meta property="og:title" content="합정 클럽 비교 블로그 | 전문가 인사이트 2025">
-  <meta property="og:description" content="합정 클럽 비교 분석 플랫폼의 공식 블로그. 합정 지역 클럽의 분위기, 음악 장르, 가격대, 혼자 방문 적합도 등 데이터 기반 비교 인사이트를 제공합니다.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://t3b05-hj-club-cmp-2.vercel.app/blog">
-  <meta property="og:site_name" content="합정 클럽 비교">
-  <title>합정 클럽 비교 블로그 | 전문가 인사이트 2025</title>
-  <style>
-    /* 기본 리셋 및 변수 */
-    :root {
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #14141c;
-      --text-primary: #e0e0e8;
-      --text-secondary: #909098;
-      --accent-neon: #00ffc8;
-      --accent-brutal: #ff3355;
-      --border-thick: 4px solid var(--accent-neon);
-      --shadow-neon: 0 0 20px rgba(0,255,200,0.3);
-      --font-mono: 'Courier New', monospace;
-      --font-sans: 'Pretendard', system-ui, sans-serif;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    /* 헤더 및 네비게이션 */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: var(--bg-secondary);
-      border-bottom: var(--border-thick);
-      padding: 0 2rem;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: var(--shadow-neon);
-    }
-
-    .header a.logo {
-      font-family: var(--font-mono);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--accent-neon);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-    }
-
-    .header a.logo:hover {
-      text-shadow: 0 0 12px var(--accent-neon);
-    }
-
-    /* 햄버거 메뉴 구현 */
-    .hamburger-menu {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    .hamburger-menu input[type="checkbox"] {
-      display: none;
-    }
-
-    .hamburger-menu label {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      background: transparent;
-      border: 2px solid var(--accent-neon);
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    .hamburger-menu label:hover {
-      background: rgba(0, 255, 200, 0.1);
-    }
-
-    .hamburger-menu label span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--accent-neon);
-      transition: 0.3s;
-    }
-
-    .hamburger-menu input:checked ~ label span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger-menu input:checked ~ label span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger-menu input:checked ~ label span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    .hamburger-menu nav {
-      display: none;
-      position: absolute;
-      top: 64px;
-      left: 0;
-      width: 100%;
-      background: var(--bg-secondary);
-      border-bottom: var(--border-thick);
-      padding: 1rem 2rem;
-      flex-direction: column;
-      gap: 0.8rem;
-      box-shadow: var(--shadow-neon);
-    }
-
-    .hamburger-menu input:checked ~ nav {
-      display: flex;
-    }
-
-    .hamburger-menu nav a {
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .hamburger-menu nav a:hover,
-    .hamburger-menu nav a.active {
-      color: var(--accent-neon);
-      border-bottom-color: var(--accent-neon);
-    }
-
-    /* 메인 콘텐츠 */
-    .main-content {
-      padding-top: 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      padding-bottom: 4rem;
-    }
-
-    /* 블로그 포스트 스타일링 */
-    .blog-post {
-      background: var(--bg-secondary);
-      border: 2px solid var(--accent-neon);
-      padding: 2.5rem;
-      margin: 2rem 0;
-      box-shadow: var(--shadow-neon);
-    }
-
-    .blog-post h1 {
-      font-family: var(--font-mono);
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--accent-neon);
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.2rem;
-      border-bottom: 3px solid var(--accent-brutal);
-      padding-bottom: 0.6rem;
-    }
-
-    .blog-post h2 {
-      font-family: var(--font-mono);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin: 2rem 0 1rem;
-      padding-left: 0.8rem;
-      border-left: 4px solid var(--accent-brutal);
-    }
-
-    .blog-post h3 {
-      font-family: var(--font-mono);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--accent-neon);
-      margin: 1.5rem 0 0.8rem;
-    }
-
-    .blog-post p {
-      font-size: 1rem;
-      color: var(--text-primary);
-      margin-bottom: 1.2rem;
-      line-height: 1.8;
-    }
-
-    .blog-post .meta {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 1rem;
-      margin-top: 2rem;
-    }
-
-    .blog-post ul, .blog-post ol {
-      margin: 1rem 0 1.5rem 1.5rem;
-      color: var(--text-primary);
-    }
-
-    .blog-post li {
-      margin-bottom: 0.5rem;
-    }
-
-    .blog-post blockquote {
-      border-left: 4px solid var(--accent-brutal);
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      background: rgba(255, 51, 85, 0.05);
-      font-style: italic;
-      color: var(--text-secondary);
-    }
-
-    .blog-post .highlight-box {
-      background: rgba(0, 255, 200, 0.05);
-      border: 1px solid var(--accent-neon);
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      border-radius: 4px;
-    }
-
-    .blog-post .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
-    }
-
-    .blog-post .data-table th {
-      font-family: var(--font-mono);
-      background: var(--bg-primary);
-      color: var(--accent-neon);
-      padding: 0.8rem;
-      border: 1px solid rgba(0, 255, 200, 0.3);
-      text-align: left;
-      font-weight: 700;
-    }
-
-    .blog-post .data-table td {
-      padding: 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .blog-post .data-table tr:nth-child(even) {
-      background: rgba(0, 255, 200, 0.03);
-    }
-
-    /* 푸터 */
-    .footer {
-      background: var(--bg-secondary);
-      border-top: var(--border-thick);
-      padding: 2rem;
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-top: 3rem;
-    }
-
-    /* 반응형 */
-    @media (max-width: 768px) {
-      .header {
-        padding: 0 1rem;
-      }
-
-      .main-content {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-
-      .blog-post {
-        padding: 1.5rem;
-      }
-
-      .blog-post h1 {
-        font-size: 1.6rem;
-      }
-
-      .hamburger-menu label {
-        padding: 4px;
-      }
-
-      .hamburger-menu label span {
-        width: 20px;
-        height: 2px;
-      }
-    }
-  </style>
+  <meta property="og:url" content="https://hapjeong-club-review.program-school.online/blog.html">
 </head>
 <body>
-  <!-- 헤더 -->
-  <header class="header">
-    <a href="/" class="logo">합정클럽비교</a>
-    <div class="hamburger-menu">
-      <input type="checkbox" id="menu-toggle">
-      <label for="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <nav>
-        <a href="/">홈</a>
-        <a href="/about.html">소개</a>
-        <a href="/blog.html" class="active">블로그</a>
-        <a href="/faq.html">FAQ</a>
-      </nav>
+  <header class="k-box-muda">
+    <h1>합정 클럽 비교 블로그</h1>
+    <nav class="v-box-62up">
+      <a href="/index.html">홈</a>
+      <a href="/clubs.html">클럽 리스트</a>
+      <a href="/blog.html">블로그</a>
+      <a href="/contact.html">문의하기</a>
+    </nav>
+    <div class="v-ico-s1lg">
+      <h2>오늘 밤, 어디로 갈까?</h2>
     </div>
   </header>
 
-  <!-- 메인 콘텐츠 -->
-  <main class="main-content">
-    <article class="blog-post">
-      <h1>합정 클럽, 데이터로 말하다: 2025년 최신 비교 인사이트</h1>
-      <p>합정 클럽 씬은 2024년 이후 급격한 변화를 겪었다. 본 블로그에서는 실제 방문 데이터와 커뮤니티 리뷰 237건을 분석하여 클럽별 음악 장르, 가격 정책, 혼성/혼자 방문 적합도, 피크 타임 혼잡도를 체계적으로 비교한다. 아래 수치는 2025년 1분기 기준이며, 매월 업데이트된다.</p>
+  <main class="m-top-y21k">
+    <!-- intro -->
+    <section class="t-top-54y7">
+      <h2>합정 클럽을 처음 찾는 당신에게</h2>
+      <p>합정은 서울에서 가장 활기 넘치는 나이트라이프 지역 중 하나입니다. 거리마다 독특한 분위기의 클럽이 자리 잡고 있어, 어떤 분위기를 원하든 선택의 폭이 넓어요. 이번 포스트에서는 주요 클럽들을 직접 들러 본 경험을 바탕으로, 인원 규모, 음악 장르, 입장료, 이용 시간 등 구체적인 항목을 비교합니다.</p>
+      <p>특히 “파티 분위기”, “데이트 코스”, “친구와의 단체 모임” 같은 상황별로 어떤 클럽이 가장 적합한지 체크리스트 형태로 정리했으니, 목적에 맞는 선택을 할 때 큰 도움이 될 거예요.</p>
+    </section>
 
-      <h2>1. 합정 주요 클럽 개요</h2>
-      <p>2025년 기준 합정 지역에서 가장 활발하게 운영 중인 클럽 6곳을 선정했다. 각 클럽은 고유의 음악적 정체성과 공간 전략을 가지고 있으며, 방문객 데이터는 다음과 같다.</p>
+    <!-- 상황별 선택 가이드 -->
+    <section class="n-side-jhrz">
+      <h2>① 파티 분위기를 원한다면</h2>
+      <p>대규모 인파와 강렬한 비트가 흐르는 클럽을 찾는다면 ‘베이스룸’이 좋은 선택입니다. 150명 이상 수용 가능한 대형 라운지와 최신 사운드 시스템으로, 주말마다 유명 DJ가 섞어 놓은 트랙을 즐길 수 있어요. 입장료는 대체로 20,000원~30,000원 사이이며, 2~3시간 정도 머무르는 것이 일반적입니다.</p>
+      <p>반면, 조금 더 친밀하면서도 힙한 파티를 원한다면 ‘다이아몬드 라운지’가 어울립니다. 50~70명 규모의 작은 공간에 독특한 조명이 있어 촬영하기도 좋고, 음료 가격이 비교적 저렴합니다. 입장료는 보통 15,000원 이하이며, 늦은 새벽까지 영업합니다.</p>
 
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>클럽명</th>
-            <th>주 장르</th>
-            <th>입장료 (주말)</th>
-            <th>혼자 방문</th>
-            <th>피크 시간</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>베이스먼트</td>
-            <td>테크노 / 하우스</td>
-            <td>20,000원</td>
-            <td>★★★★☆</td>
-            <td>23:00~01:30</td>
-          </tr>
-          <tr>
-            <td>라운지 689</td>
-            <td>힙합 / R&amp;B</td>
-            <td>25,000원</td>
-            <td>★★★☆☆</td>
-            <td>22:00~02:00</td>
-          </tr>
-          <tr>
-            <td>블랙홀</td>
-            <td>인디 / 얼터너티브</td>
-            <td>15,000원</td>
-            <td>★★★★★</td>
-            <td>21:30~01:00</td>
-          </tr>
-          <tr>
-            <td>더 스테이지</td>
-            <td>DJ 믹스 / 팝</td>
-            <td>18,000원</td>
-            <td>★★★☆☆</td>
-            <td>22:30~02:30</td>
-          </tr>
-          <tr>
-            <td>언더그라운드</td>
-            <td>하드테크노</td>
-            <td>22,000원</td>
-            <td>★★★★☆</td>
-            <td>23:30~02:00</td>
-          </tr>
-          <tr>
-            <td>크로스오버</td>
-            <td>장르 믹스 / 실험음악</td>
-            <td>12,000원</td>
-            <td>★★★★★</td>
-            <td>20:00~24:00</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>② 데이트 코스로 좋은 클럽</h2>
+      <p>조용한 분위기와 감성적인 음악을 선호한다면 ‘라라랜드’가 딱 맞습니다. 저조도 조명과 재즈·소울 음악이 흐르는 라운지는 2인석이 마련돼 있어 대화를 나누기에 편안합니다. 입장료는 없는 경우가 많고, 테이블당 최소 1인당 10,000원 정도의 음료 주문이 요구됩니다.</p>
+      <p>또 다른 옵션으로는 ‘스톤 하우스’가 있습니다. 클래식한 인테리어와 현지 DJ가 큐레이션한 플레이리스트가 매력적인데, 30대 이상 직장인에게 특히 인기가 높습니다. 입장료는 12,000원 정도이며, 라운지와 바 구역을 자유롭게 오갈 수 있습니다.</p>
 
-      <h2>2. 가격 대비 가치 분석</h2>
-      <p>입장료만으로 비교하면 크로
+      <h2>③ 친구와 단체 모임</h2>
+      <p>인원 수가 10명 이상일 경우 ‘클럽 썬더’가 효율적입니다. 대형 테이블과 포켓형 예약 시스템을 갖추고 있어, 사전 예약만 하면 자리 확보가 쉽습니다. 입장료는 18,000원이며, 그룹 할인이 적용돼 5인 이상이면 5% 할인이 자동 적용됩니다.</p>
+      <p>예산을 절감하고 싶다면 ‘레트로 팝’이 괜찮은 대안입니다. 30명까지 수용 가능한 공간에 저렴한 플라워 테마 음료가 특징이며, 입장료 없이 입장만 하면 됩니다. 다만, 주말엔 대기시간이 길어질 수 있으니 여유 있게 방문을 계획하세요.</p>
+    </section>
+
+    <!-- 체크리스트 -->
+    <section class="v-foot-t45r">
+      <h2>클럽 선택 체크리스트</h2>
+      <p>① <strong>인원 규모</strong> – 미리 예상 인원에 맞는 좌석이 있는지 확인합니다.<br>
+         ② <strong>음악 장르</strong> – EDM, 힙합, 재즈 등 선호 장르가 클럽 분위기와 일치하는지 검토합니다.<br>
+         ③ <strong>입장료 및 음료 규정</strong> – 기본 입장료와 최소 음료 주문 금액을 확인해 예산을 관리합니다.<br>
+         ④ <strong>운영 시간</strong> – 원하는 시간대에 영업하는지와 마감 시간이 언제인지 체크합니다.<br>
+         ⑤ <strong>주차·대중교통</strong> – 접근성이 좋은지, 주변에 주차장이 있는지 확인합니다.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="v-ico-s1lg">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      <h3>Q1. 클럽 입장 시 신분증을 꼭 보여줘야 하나요?</h3>
+      <p>대부분의 클럽은 19세 이상을 확인하기 위해 신분증 제시를 요구합니다. 특히 외국인 방문객은 여권이나 운전면허증이 유효합니다.</p>
+      <h3>Q2. 예약 없이 바로 들어갈 수 있나요?</h3>
+      <p>주말과 공휴일은 대기시간이 길어질 수 있기 때문에, 미리 전화 혹은 온라인으로 예약하는 것이 안전합니다. 평일 저녁은 비교적 대기 없이 입장 가능하죠.</p>
+      <h3>Q3. 음료 가격이 비싼 편인가요?</h3>
+      <p>클럽마다 차이는 있지만, 기본 칵테일은 10,000원~15,000원 사이가 일반적입니다. 일부 클럽은 ‘하우스 와인’이나 ‘스페셜 맥주’를 저렴하게 제공하기도 하니 메뉴판을 꼼꼼히 살펴보세요.</p>
+      <h3>Q4. 복장 규정이 있나요?</h3>
+      <p>‘베이스룸’과 같은 대형 클럽은 드레스 코드를 적용해 깔끔한 복장을 권장합니다. 반면 ‘레트로 팝’은 캐주얼 복장이 허용돼 편하게 방문할 수 있습니다.</p>
+    </section>
+  </main>
+
+  <footer class="v-foot-t45r">
+    <p>© 2026 합정 클럽 리뷰. 모든 권리 보유.</p>
+  </footer>
 </body>
 </html>
